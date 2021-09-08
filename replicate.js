@@ -7,7 +7,7 @@ PouchDB.replicate(process.env.SOURCE_DATABASE_URL, process.env.TARGET_DATABASE_U
 }).on('change', function (info) {
   // handle change
   console.log('change')
-  console.log(info)
+  console.log(info.last_seq)
 }).on('paused', function (err) {
   // replication paused (e.g. replication up to date, user went offline)
   console.log('paused')
