@@ -20,6 +20,7 @@ fi
 docker run -d \
    -e SOURCE_DATABASE_URL=$SOURCE_DATABASE_URL \
    -e TARGET_DATABASE_URL=$TARGET_DATABASE_URL \
+   -e SINCE=$SINCE \
    --name $PROCESS_NAME \
    $PROCESS_NAME:local
 

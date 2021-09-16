@@ -3,7 +3,12 @@ var fs = require('fs-extra')
 
 PouchDB.replicate(process.env.SOURCE_DATABASE_URL, process.env.TARGET_DATABASE_URL, {
   live: true,
-  retry: true
+  retry: true,
+  ...process.env.SINCE !== '0'
+    {
+      since: process.env.SINCE
+    },
+    : {}
 }).on('change', function (info) {
   // handle change
   console.log('change')
